@@ -1,0 +1,125 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Poppins:wght@600&display=swap');
+
+/* font-family: 'Montserrat', sans-serif;
+font-family: 'Poppins', sans-serif; */
+
+:root {
+    --highlight: #4ADF86;
+    --bg-dark: #1F2937;
+    --fade: #D5D4D8;
+    --extra-fade: #888888;
+    --btn: #10B981;
+    --dark-output: #273549;
+    --bg-light: #fff;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
+.main-container{
+    background-color: var(--bg-dark);
+    height: 82.5vh;
+    padding: 3rem 4rem 4rem 4rem;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+    color: var(--bg-light);
+    font-family: 'Montserrat', sans-serif;
+}
+
+h2.title{
+    font-size: 3rem;
+    font-weight: 600;
+    margin-bottom: .7rem;
+}
+
+span.highlight{
+    color: var(--highlight);
+}
+
+p.inner-title{
+    margin-top: .3rem;
+    margin-bottom: 1.5rem;
+    font-size: 1.3rem;
+    color: var(--fade);
+}
+
+.input-info .btn{
+    display: block;
+    border: none;
+	padding: 1rem;
+	border-radius: 6px;
+    background-color: var(--btn);
+    color: var(--bg-light);
+    font-size: 1.2rem;
+    /* border-bottom: solid 1px rgb(255, 255, 255, 10); */
+}
+
+/* hr.line{
+    margin: .25rem 0 .25rem 1rem;
+    width: 3rem;
+    background-image: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, .75), rgba(255, 255, 255, 0));
+} */
+
+.slider-box{
+    font-size: 1.1rem;
+    margin-top: 1.6rem;
+}
+
+.slider-box span.description{
+    letter-spacing: 1.2px;
+    padding-right: 1rem;
+}
+
+input.slider{
+    position: relative;
+    top: .125rem;
+    /* border-bottom: 2px solid #dedede; */
+    /* padding: 1.5rem 1rem; */
+}
+
+.custom-filter .custom-heading{
+    margin: 1.6rem 0 0.6rem 0rem;
+    letter-spacing: .25rem;
+    color: var(--extra-fade);
+}
+
+.custom-filter .filter > span {
+    letter-spacing: 1.2px;
+    font-size: 1.1rem;
+    margin-left: .5rem;
+}
+
+.custom-filter div.filter :nth-child(1){
+    margin-bottom: .4rem;
+    margin-top: .8rem;
+}
+
+.output-password{
+    border-top: 1px solid var(--dark-output);
+	width: 50%;
+	margin-top: 2rem;
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.password-field{
+	max-width: 232px;
+	width: 100%;
+	height: 40px;
+	background: var(--BG-DARK-BLUR);
+	border-radius: 6px;
+	margin: 20px 4px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	color: var(--highlight);
+}
+

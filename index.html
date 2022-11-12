@@ -27,15 +27,15 @@
 
     <div class="main-container">
         <h2 class="title">Generate a <br> <span class="highlight">Random Password</span></h2>
-        <p class="inner-title">Never Use an insecure password again</p>
+        <p class="inner-title">Be Smarter than hackers</p><!-- Never Use an insecure password again -->
 
         <div class="input-info">
             <button type="submit" class="btn" >Generate Password</button>
             <!-- <hr class="line"> -->
             <div class="slider-box">
                 <span class="description">Length of Password: </span>
-                <input type="range" min="0" max="100" value="0" class="slider" id="slider" name="slider" />
-                <label for="slider" id="sliderText">0</label>
+                <input type="range" min="6" max="20" value="0" class="slider" id="slider" name="slider" required />
+                <label for="slider" id="sliderText">6</label>
             </div>
             <div class="custom-filter">
                 <div class="custom-heading">CUSTOM</div> <!-- within div: <hr class="line"> -->
@@ -51,7 +51,7 @@
             </div>
         </div>
         <div class="output-password">
-            <div class="password-field"></div>
+            <div class="password-field">############################### <span class="visible"><i class="fa-solid fa-eye-slash"></i> <i class="fa-solid fa-eye"></i></span>  </div><div class="copy"><i class="fa-regular fa-copy"></i> </div>
         </div>
     </div>
 

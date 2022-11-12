@@ -11,6 +11,7 @@ font-family: 'Poppins', sans-serif; */
     --btn: #10B981;
     --dark-output: #273549;
     --bg-light: #fff;
+    --custom-dark: #103e5f;
 }
 
 *{
@@ -20,12 +21,12 @@ font-family: 'Poppins', sans-serif; */
 
 body{
     overflow-x: hidden;
-    overflow-y: hidden;
+    /* overflow-y: hidden; */
 }
 
 .main-container{
     background-color: var(--bg-dark);
-    height: 82.5vh;
+    min-height: 82.5vh;
     padding: 3rem 4rem 4rem 4rem;
 	display: flex;
 	flex-direction: column;
@@ -59,6 +60,7 @@ p.inner-title{
     background-color: var(--btn);
     color: var(--bg-light);
     font-size: 1.2rem;
+    cursor: pointer;
     /* border-bottom: solid 1px rgb(255, 255, 255, 10); */
 }
 
@@ -78,6 +80,13 @@ p.inner-title{
     padding-right: 1rem;
 }
 
+.slider-box label{
+    font-size: 1.5rem;
+    padding-left: .5rem;
+    position: relative;
+    top: 5.5px;
+}
+
 input.slider{
     position: relative;
     top: .125rem;
@@ -95,31 +104,186 @@ input.slider{
     letter-spacing: 1.2px;
     font-size: 1.1rem;
     margin-left: .5rem;
+    position: relative;
+    top: -10px;
+    left: 25px;
 }
 
 .custom-filter div.filter :nth-child(1){
-    margin-bottom: .4rem;
-    margin-top: .8rem;
+    margin-bottom: -.8rem;
+    margin-top: 1.2rem;
 }
 
 .output-password{
+    display: flex;
     border-top: 1px solid var(--dark-output);
-	width: 50%;
+	width: 100%;
 	margin-top: 2rem;
 	display: flex;
 	flex-wrap: wrap;
 }
 
 .password-field{
-	max-width: 232px;
-	width: 100%;
-	height: 40px;
-	background: var(--BG-DARK-BLUR);
-	border-radius: 6px;
-	margin: 20px 4px;
+	min-width: 15rem;
+	height: 3.5rem;
+    padding: 0 1.2rem;
+	margin: 1.25rem 1.25rem 1.25rem .5rem;
+	background: var(--dark-output);
+	border-radius: .4rem;
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	color: var(--highlight);
 }
+
+.output-password span.visible{
+    color: var(--bg-light);
+    padding-left: 1rem;
+}
+
+.copy{
+    margin-top: 1.28rem;
+    border: 1px solid var(--dark-output);
+    padding: .75rem;
+    height: fit-content;
+    color: var(--extra-fade);
+    border-radius: 6px;
+}
+
+div.copy > i{
+    font-size: 1.5rem;
+}
+
+div.copy:hover {
+    border-color: var(--highlight);
+    transition: all .75s;
+}
+
+/* ==================================================== CHECKBOX ==================================================== */
+
+input[type="checkbox"] {
+    appearance: none;
+    background-color: var(--bg-light);
+    margin: 0;
+    font: inherit;
+    color: currentColor;
+    width: 1.15em;
+    height: 1.15em;
+    border: 0.15em solid currentColor;
+    border-radius: 0.15em;
+    transform: translateY(-0.075em);
+    display: grid;
+    place-content: center;
+    
+}
+
+input[type="checkbox"]::before {
+    content: "";
+    width: 0.65em;
+    height: 0.65em;
+    transform: scale(0);
+    transition: 120ms transform ease-in-out;
+    box-shadow: inset 1em 1em var(--bg-dark);
+    background-color: CanvasText;
+    transform-origin: bottom left;
+    clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
+}
+
+input[type="checkbox"]:checked::before {
+    transform: scale(1);
+}
+
+input[type="checkbox"]:focus {
+    outline: max(2px, 0.15em) solid currentColor;
+    /* outline-offset: max(2px, 0.15em); */
+}
+
+
+/* ==================================================== SLIDER ==================================================== */
+
+input[type="range"] {
+    -webkit-appearance: none;
+    appearance: none;
+    background: transparent;
+    cursor: pointer;
+    width: 15rem;
+}
+
+/* Track Styles */
+/* Chrome, Safari, Opera, and Edge Chromium */
+input[type="range"]::-webkit-slider-runnable-track {
+    background: var(--custom-dark);
+    height: 0.5rem;
+}
+  
+/* Firefox */
+input[type="range"]::-moz-range-track {
+  background: var(--custom-dark);
+  height: 0.5rem;
+}
+
+/* Thumb Styles */
+/* Chrome, Safari, Opera, and Edge Chromium */
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none; /* Override default look */
+    appearance: none;
+    margin-top: -12px; /* Centers thumb on the track */
+    background-color: var(--highlight);
+    height: 2rem;
+    width: 1rem;    
+}
+
+
+/* Thumb Styles */
+/* Firefox */
+input[type="range"]::-moz-range-thumb {
+    border: none; /*Removes extra border that FF applies*/
+    border-radius: 0; /*Removes default border-radius that FF applies*/
+    background-color: var(--highlight);
+    height: 2rem;
+    width: 1rem;
+}
+
+/* Removes default focus */
+input[type="range"]:focus {
+    outline: none;
+  }
+  
+/* Chrome, Safari, Opera, and Edge Chromium */
+input[type="range"]:focus::-webkit-slider-thumb {
+    /* border: 1px solid var(--highlight); */
+    outline: 1.5px solid var(--highlight);
+    outline-offset: 0.2rem;
+}
+  
+/* Firefox */
+input[type="range"]:focus::-moz-range-thumb {
+    border: 1px solid var(--custom-dark);
+    outline: 3px solid var(--custom-dark);
+    outline-offset: 0.125rem;     
+}
+
+  
+
+
+/* ==================================================== SCROLLBAR ==================================================== */
+
+::-webkit-scrollbar {
+    width: .45rem;
+    background-color: var(--fade);
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: var(--highlight);
+    border-radius: 2rem;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--highlight);
+}
+
+::-webkit-scrollbar-track {
+    background: var(--extra-fade);
+}
+
 

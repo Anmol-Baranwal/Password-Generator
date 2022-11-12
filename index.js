@@ -7,8 +7,10 @@ const characterSet =["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O"
 const slider= document.getElementById("slider");
 const numbersFilter= document.getElementById("numbers");
 const symbolsFilter= document.getElementById("symbols");
-const password= document.querySelector(".password-field");
+const password= document.querySelector(".password");
 const clickBtn= document.querySelector(".btn");
+let txt = document.querySelector(".password");
+const copy= document.querySelector(".copy");
 
 // custom values
 let useNumbers= true;
@@ -20,12 +22,11 @@ slider.addEventListener('input', () => {
     passLength= slider.value;
 })
 
-clickBtn.addEventListener("submit", (e) => {
-    // e.preventDefault();
+clickBtn.addEventListener("click", (e) => {
+    e.preventDefault();
 
     let randomPass= newRandomPassword(passLength);
-    console.log(newRandomPassword(passLength));
-    password.textContent= randomPass;
+    password.innerText= randomPass;
     
 })
 
@@ -83,5 +84,14 @@ const newRandomPassword = (length) => {
     return newPassword;
 }
 
-
+// copy.addEventListener("click", (e) => {
+    const copyPassword = async () => {
+        try {
+          await navigator.clipboard.writeText(txt.innerHTML);
+          console.log('Content copied to clipboard');
+        } catch (err) {
+          console.error('Failed to copy: ', err);
+        }
+    }
+// })
 

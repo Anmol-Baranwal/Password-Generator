@@ -61,7 +61,9 @@ p.inner-title{
     color: var(--bg-light);
     font-size: 1.2rem;
     cursor: pointer;
-    /* border-bottom: solid 1px rgb(255, 255, 255, 10); */
+    box-shadow: 2px 3px 3px 0px rgba(16,185,129,.3);
+    -webkit-box-shadow: 2px 3px 3px 0px rgba(16,185,129,.3);
+    -moz-box-shadow: 2px 3px 3px 0px rgba(16,185,129,.3);
 }
 
 /* hr.line{
@@ -85,6 +87,8 @@ p.inner-title{
     padding-left: .5rem;
     position: relative;
     top: 5.5px;
+    font-weight: 500;
+    letter-spacing: 1.2px;
 }
 
 input.slider{
@@ -126,7 +130,7 @@ input.slider{
 .password-field{
 	min-width: 15rem;
 	height: 3.5rem;
-    padding: 0 1.2rem;
+    padding: 0 1.3rem;
 	margin: 1.25rem 1.25rem 1.25rem .5rem;
 	background: var(--dark-output);
 	border-radius: .4rem;
@@ -134,11 +138,12 @@ input.slider{
 	justify-content: center;
 	align-items: center;
 	color: var(--highlight);
+    letter-spacing: 1.5px;
 }
 
 .output-password span.visible{
     color: var(--bg-light);
-    padding-left: 1rem;
+    padding-left: 1.2rem;
 }
 
 .copy{
@@ -148,6 +153,7 @@ input.slider{
     height: fit-content;
     color: var(--extra-fade);
     border-radius: 6px;
+    cursor: pointer;
 }
 
 div.copy > i{
@@ -231,6 +237,7 @@ input[type="range"]::-webkit-slider-thumb {
     background-color: var(--highlight);
     height: 2rem;
     width: 1rem;    
+    border-radius: .2rem;
 }
 
 
@@ -254,6 +261,7 @@ input[type="range"]:focus::-webkit-slider-thumb {
     /* border: 1px solid var(--highlight); */
     outline: 1.5px solid var(--highlight);
     outline-offset: 0.2rem;
+    border-radius: .2rem;
 }
   
 /* Firefox */

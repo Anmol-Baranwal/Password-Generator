@@ -34,9 +34,11 @@ clickBtn.addEventListener("click", (e) => {
     check=1;
 
     let randomPass= newRandomPassword(passLength);
-    
     password.innerText= randomPass;
     storePassword= randomPass;
+
+    if(useVisibility == false)  hidePassword();  
+    
 })
 
 // checkbox events
@@ -97,13 +99,6 @@ const newRandomPassword = (length) => {
     return newPassword;
 }
 
-const resetCopy = () => {
-    if(!copyIcon.classList.contains("toggled")){
-        copyIcon.classList.remove("fa-check","fa-solid");
-        copyIcon.classList.add("toggled","fa-copy","fa-regular");
-    }
-}
-
 // copy.addEventListener("click", (e) => {
 const copyPassword = async () => {
     if(copyIcon.classList.contains("toggled")){
@@ -114,7 +109,7 @@ const copyPassword = async () => {
         resetCopy();
     }, 2500);
     try {
-      await navigator.clipboard.writeText(txt.innerHTML);
+      await navigator.clipboard.writeText(storePassword);
       console.log('Content copied to clipboard');
     } catch (err) {
       console.error('Failed to copy: ', err);
@@ -132,22 +127,43 @@ const hidePassword = () => {
     }
 }
 
+const resetCopy = () => {
+
+    if(useVisibility){
+        makePasswordVisible();
+    }else{
+        makePasswordNotVisible();
+    }
+
+    if(!copyIcon.classList.contains("toggled")){
+        copyIcon.classList.remove("fa-check","fa-solid");
+        copyIcon.classList.add("toggled","fa-copy","fa-regular");
+    }
+}
+
+const makePasswordVisible = () => {
+    eyeVisible.classList.remove("fa-eye","eye-not-visible");
+    eyeVisible.classList.add("eye-visible","fa-eye-slash");
+    eyeVisible= document.querySelector(".eye-visible");
+}
+
+const makePasswordNotVisible = () => {
+    eyeVisible.classList.remove("eye-visible","fa-eye-slash");
+    eyeVisible.classList.add("fa-eye","eye-not-visible");
+    eyeVisible= document.querySelector(".eye-not-visible");
+    hidePassword();
+}
+
 const visiblePassword = () => {
     if(eyeVisible.classList.contains("eye-visible")){
-        eyeVisible.classList.remove("eye-visible","fa-eye-slash");
-        eyeVisible.classList.add("fa-eye","eye-not-visible");
-        eyeVisible= document.querySelector(".eye-not-visible");
-        hidePassword();
+        makePasswordNotVisible();
 
     } else if(eyeVisible.classList.contains("eye-not-visible")) {
-        eyeVisible.classList.remove("fa-eye","eye-not-visible");
-        eyeVisible.classList.add("eye-visible","fa-eye-slash");
-        eyeVisible= document.querySelector(".eye-visible");
+        makePasswordVisible();
         check==0 ?  password.innerText= "Still Waiting ?" : password.innerText= storePassword; 
-        // if(check)   password.innerText= storePassword;
     }
 }
 
 const checkIcon = () => {
-    
+
 }

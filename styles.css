@@ -12,6 +12,7 @@ font-family: 'Poppins', sans-serif; */
     --dark-output: #273549;
     --bg-light: #fff;
     --custom-dark: #103e5f;
+    --state-copy: #51c07e;
 }
 
 *{
@@ -27,7 +28,7 @@ body{
 .main-container{
     background-color: var(--bg-dark);
     min-height: 82.5vh;
-    padding: 3rem 4rem 4rem 4rem;
+    padding: 4.5rem 4rem 4rem 4rem;
 	display: flex;
 	flex-direction: column;
 	align-items: flex-start;
@@ -130,7 +131,7 @@ input.slider{
 .password-field{
 	min-width: 15rem;
 	height: 3.5rem;
-    padding: 0 1.3rem;
+    padding: 0 1.2rem;
 	margin: 1.25rem 1.25rem 1.25rem .5rem;
 	background: var(--dark-output);
 	border-radius: .4rem;
@@ -143,11 +144,12 @@ input.slider{
 
 .output-password span.visible{
     color: var(--bg-light);
-    padding-left: 1.2rem;
+    padding-left: 1.4rem;
+    cursor: pointer;
 }
 
 .copy{
-    margin-top: 1.28rem;
+    margin-top: 1.3rem;
     border: 1px solid var(--dark-output);
     padding: .75rem;
     height: fit-content;
@@ -160,10 +162,45 @@ div.copy > i{
     font-size: 1.5rem;
 }
 
-div.copy:hover {
-    border-color: var(--highlight);
-    transition: all .75s;
+div.copy:hover,
+div.copy:focus,
+div.copy:active {
+    border-color: var(--state-copy);
+    transition: all .85s;
 }
+
+div.copy:hover > i,
+div.copy:focus > i,
+div.copy:active > i{
+    transition: all .85s;
+    color: var(--state-copy);
+}
+
+/* we can also use this way to toggle for changing the copy icon */
+/* .no-display{
+    display: none;
+}
+
+.inline-display{
+    display: inline-block;
+} */
+
+@media (max-width: 520px) {
+    .password-field{
+        margin-left: -.5rem;
+        margin-right: .8rem;
+    }
+    .output-password{
+        font-size: .80rem;
+    }
+    .copy{
+        margin-top: 1.5rem;
+    }
+    div.copy > i{
+        font-size: 1.2rem;
+    }
+}
+
 
 /* ==================================================== CHECKBOX ==================================================== */
 
@@ -294,4 +331,45 @@ input[type="range"]:focus::-moz-range-thumb {
     background: var(--extra-fade);
 }
 
+/* ================================== GitHub Corner ================================================= */
 
+.github-corner:hover .left-corner {
+    animation: github-wave 560ms ease-in-out;
+}
+
+
+@keyframes github-wave {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    20% {
+        transform: rotate(-25deg);
+    }
+
+    40% {
+        transform: rotate(10deg);
+    }
+
+    60% {
+        transform: rotate(-25deg);
+    }
+
+    80% {
+        transform: rotate(10deg);
+    }
+
+    100% {
+        transform: rotate(0deg);
+    }
+}
+
+@media (max-width: 500px) {
+    .github-corner:hover .left-corner {
+        animation: none;
+    }
+
+    /* .github-corner .left-corner {
+        animation: octocat-wave 560ms ease-in-out;
+    } */
+}

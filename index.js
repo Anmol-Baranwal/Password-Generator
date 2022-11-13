@@ -7,15 +7,21 @@ const characterSet =["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O"
 const slider= document.getElementById("slider");
 const numbersFilter= document.getElementById("numbers");
 const symbolsFilter= document.getElementById("symbols");
+const visibileFilter= document.getElementById("visibility");
 const password= document.querySelector(".password");
 const clickBtn= document.querySelector(".btn");
 let txt = document.querySelector(".password");
 const copy= document.querySelector(".copy");
+const copyIcon= document.querySelector(".toggled");
+let eyeVisible= document.querySelector(".eye-visible");
 
 // custom values
 let useNumbers= true;
 let useSymbols= true;
 let passLength= 6;
+let useVisibility= true;
+let check=0;
+let storePassword= "";
 
 slider.addEventListener('input', () => {
     sliderText.innerText = `${slider.value}`;
@@ -24,10 +30,13 @@ slider.addEventListener('input', () => {
 
 clickBtn.addEventListener("click", (e) => {
     e.preventDefault();
+    resetCopy();
+    check=1;
 
     let randomPass= newRandomPassword(passLength);
-    password.innerText= randomPass;
     
+    password.innerText= randomPass;
+    storePassword= randomPass;
 })
 
 // checkbox events
@@ -40,6 +49,10 @@ symbolsFilter.addEventListener("change", (e) => {
 	useSymbols = e.target.checked;  // sets boolean value
 	// console.log(useSymbols);
 });
+
+visibileFilter.addEventListener("change", (e) => {
+    useVisibility = e.target.checked;
+})
 
 // filter main characters array   
 
@@ -84,14 +97,57 @@ const newRandomPassword = (length) => {
     return newPassword;
 }
 
-// copy.addEventListener("click", (e) => {
-    const copyPassword = async () => {
-        try {
-          await navigator.clipboard.writeText(txt.innerHTML);
-          console.log('Content copied to clipboard');
-        } catch (err) {
-          console.error('Failed to copy: ', err);
-        }
+const resetCopy = () => {
+    if(!copyIcon.classList.contains("toggled")){
+        copyIcon.classList.remove("fa-check","fa-solid");
+        copyIcon.classList.add("toggled","fa-copy","fa-regular");
     }
+}
+
+// copy.addEventListener("click", (e) => {
+const copyPassword = async () => {
+    if(copyIcon.classList.contains("toggled")){
+        copyIcon.classList.remove("toggled","fa-copy","fa-regular");
+        copyIcon.classList.add("fa-solid","fa-check");
+    }
+    setTimeout(() => {
+        resetCopy();
+    }, 2500);
+    try {
+      await navigator.clipboard.writeText(txt.innerHTML);
+      console.log('Content copied to clipboard');
+    } catch (err) {
+      console.error('Failed to copy: ', err);
+    }
+}
 // })
 
+const hidePassword = () => {
+    if(check){
+        let hidePass= "";
+        for(let i=0; i < passLength; i++){
+            hidePass+="*";
+        }
+        password.innerText= hidePass;
+    }
+}
+
+const visiblePassword = () => {
+    if(eyeVisible.classList.contains("eye-visible")){
+        eyeVisible.classList.remove("eye-visible","fa-eye-slash");
+        eyeVisible.classList.add("fa-eye","eye-not-visible");
+        eyeVisible= document.querySelector(".eye-not-visible");
+        hidePassword();
+
+    } else if(eyeVisible.classList.contains("eye-not-visible")) {
+        eyeVisible.classList.remove("fa-eye","eye-not-visible");
+        eyeVisible.classList.add("eye-visible","fa-eye-slash");
+        eyeVisible= document.querySelector(".eye-visible");
+        check==0 ?  password.innerText= "Still Waiting ?" : password.innerText= storePassword; 
+        // if(check)   password.innerText= storePassword;
+    }
+}
+
+const checkIcon = () => {
+    
+}

@@ -1,22 +1,20 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Poppins:wght@600&display=swap');
-
-/* font-family: 'Montserrat', sans-serif;
-font-family: 'Poppins', sans-serif; */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
+/* font-family: 'Montserrat', sans-serif; */
 
 :root {
-    --highlight: #4ADF86;
     --bg-dark: #1F2937;
-    --fade: #D5D4D8;
-    --extra-fade: #888888;
+    --bg-light: #fff;
     --btn: #10B981;
     --btn-bg-color: #4ADF86;
     --btn-color: #fff;
-    --dark-output: #273549;
-    --bg-light: #fff;
     --custom-dark: #103e5f;
-    --state-copy: #51c07e;
+    --dark-output: #273549;
+    --extra-fade: #888888;
     --eye-white: #fff;
+    --fade: #D5D4D8;
+    --highlight: #4ADF86;
     --scrollbar-bottom: #D5D4D8;
+    --state-copy: #51c07e;
 }
 
 *{
@@ -26,22 +24,21 @@ font-family: 'Poppins', sans-serif; */
 
 body{
     overflow-x: hidden;
-    /* overflow-y: hidden; */
 }
 
-title{
+/* title{
     color: var(--highlight);
-}
+} */
 
 .main-container{
+	align-items: flex-start;
     background-color: var(--bg-dark);
-    min-height: 82.5vh;
-    padding: 4.5rem 4rem 4rem 4rem;
+    color: var(--bg-light);
 	display: flex;
 	flex-direction: column;
-	align-items: flex-start;
-    color: var(--bg-light);
     font-family: 'Montserrat', sans-serif;
+    min-height: 82.5vh;
+    padding: 4.5rem 4rem 4rem 4rem;
 }
 
 h2.title{
@@ -55,31 +52,25 @@ span.highlight{
 }
 
 p.inner-title{
-    margin-top: .3rem;
-    margin-bottom: 1.5rem;
-    font-size: 1.3rem;
     color: var(--fade);
+    font-size: 1.3rem;
+    margin-bottom: 1.5rem;
+    margin-top: .3rem;
 }
 
 .input-info .btn{
-    display: block;
-    border: none;
-	padding: 1rem;
-	border-radius: 6px;
     background-color: var(--btn-bg-color);
+    border: none;
+	border-radius: 6px;
     color: var(--btn-color);
-    font-size: 1.2rem;
     cursor: pointer;
+    display: block;
+    font-size: 1.2rem;
+	padding: 1rem;
     box-shadow: 2px 3px 3px 0px rgba(16,185,129,.3);
     -webkit-box-shadow: 2px 3px 3px 0px rgba(16,185,129,.3);
     -moz-box-shadow: 2px 3px 3px 0px rgba(16,185,129,.3);
 }
-
-/* hr.line{
-    margin: .25rem 0 .25rem 1rem;
-    width: 3rem;
-    background-image: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, .75), rgba(255, 255, 255, 0));
-} */
 
 .slider-box{
     font-size: 1.1rem;
@@ -93,24 +84,22 @@ p.inner-title{
 
 .slider-box label{
     font-size: 1.5rem;
+    font-weight: 500;
+    letter-spacing: 1.2px;
     padding-left: .5rem;
     position: relative;
     top: 5.5px;
-    font-weight: 500;
-    letter-spacing: 1.2px;
 }
 
 input.slider{
     position: relative;
     top: .125rem;
-    /* border-bottom: 2px solid #dedede; */
-    /* padding: 1.5rem 1rem; */
 }
 
 .custom-filter .custom-heading{
-    margin: 1.6rem 0 0.6rem 0rem;
-    letter-spacing: .25rem;
     color: var(--extra-fade);
+    letter-spacing: .25rem;
+    margin: 1.6rem 0 0.6rem 0rem;
 }
 
 .custom-filter .filter > span {
@@ -128,42 +117,41 @@ input.slider{
 }
 
 .output-password{
-    display: flex;
     border-top: 1px solid var(--dark-output);
-	width: 100%;
-	margin-top: 2rem;
-	display: flex;
+    display: flex;
 	flex-wrap: wrap;
+	margin-top: 2rem;
+	width: 100%;
 }
 
 .password-field{
-	min-width: 15rem;
-	height: 3.5rem;
-    padding: 0 1.2rem;
-	margin: 1.25rem 1.25rem 1.25rem .5rem;
+	align-items: center;
 	background: var(--dark-output);
 	border-radius: .4rem;
-	display: flex;
-	justify-content: center;
-	align-items: center;
 	color: var(--highlight);
+	display: flex;
+	height: 3.5rem;
+	justify-content: center;
     letter-spacing: 1.5px;
+	margin: 1.25rem 1.25rem 1.25rem .5rem;
+	min-width: 15rem;
+    padding: 0 1.2rem;
 }
 
 .output-password span.visible{
     color: var(--eye-white);
-    padding-left: 1.4rem;
     cursor: pointer;
+    padding-left: 1.4rem;
 }
 
 .copy{
-    margin-top: 1.3rem;
     border: 1px solid var(--dark-output);
-    padding: .75rem;
-    height: fit-content;
-    color: var(--extra-fade);
     border-radius: 6px;
+    color: var(--extra-fade);
     cursor: pointer;
+    height: fit-content;
+    margin-top: 1.3rem;
+    padding: .75rem;
 }
 
 div.copy > i{
@@ -180,8 +168,8 @@ div.copy:active {
 div.copy:hover > i,
 div.copy:focus > i,
 div.copy:active > i{
-    transition: all .85s;
     color: var(--state-copy);
+    transition: all .85s;
 }
 
 /* we can also use this way to toggle for changing the copy icon */
@@ -214,28 +202,28 @@ div.copy:active > i{
     align-items: center;
     position: absolute;
     right: 5rem;
-    top: 2.5rem;
+    top: 3rem;
 }
 
 .toggle-btn {
-    height: 1.5rem;
-    width: 3.5rem;
     background-color: var(--bg-light);
-    transition: all .8s;
     border-radius: 2rem;
-    padding: .44rem .4rem .4rem .6rem;
+    height: 1.5rem;
     margin: 0 .5rem;
+    padding: .44rem .4rem .4rem .6rem;
+    transition: all .8s;
+    width: 3.5rem;
 }
 
 .inner-circle {
-    width: 1.5rem;
-    height: 1.5rem;
-    border-radius: 50%;
-    position: relative;
-    left: 1.8rem;
     background-color: var(--bg-light);
-    transition: all .8s;
+    border-radius: 50%;
     box-shadow: inset -8px -7px 0 0px var(--bg-dark);
+    height: 1.5rem;
+    left: 1.8rem;
+    position: relative;
+    transition: all .8s;
+    width: 1.5rem;
 }
 
 .toggle-btn.toggled{
@@ -244,10 +232,24 @@ div.copy:active > i{
 }
 
 .toggle-btn.toggled > .inner-circle {
-    transform: translateX(-30px) ;
-    transition: all .8s;
     background-color: #fff; /* var(--bg-light) */ 
     box-shadow: inset -20px -10px 0 0px var(--bg-dark);
+    transform: translateX(-30px) ;
+    transition: all .8s;
+}
+
+@media (max-width: 768px){
+    .dark-mode {
+        position: absolute;
+        right: 3rem;
+        top: 2.5rem;
+    }
+}
+
+@media (max-width: 550px){
+    .main-container{
+        padding-top: 6.5rem;
+    }
 }
 
 /* ==================================================== CHECKBOX ==================================================== */
@@ -255,29 +257,29 @@ div.copy:active > i{
 input[type="checkbox"] {
     appearance: none;
     background-color: var(--bg-light);
-    margin: 0;
-    font: inherit;
-    color: currentColor;
-    width: 1.15em;
-    height: 1.15em;
     border: 0.15em solid currentColor;
     border-radius: 0.15em;
-    transform: translateY(-0.075em);
+    color: currentColor;
     display: grid;
+    font: inherit;
+    height: 1.15em;
+    margin: 0;
     place-content: center;
+    transform: translateY(-0.075em);
+    width: 1.15em;
     
 }
 
 input[type="checkbox"]::before {
-    content: "";
-    width: 0.65em;
-    height: 0.65em;
-    transform: scale(0);
-    transition: 120ms transform ease-in-out;
+    /* background-color: CanvasText; */
     box-shadow: inset 1em 1em var(--bg-dark);
-    background-color: CanvasText;
-    transform-origin: bottom left;
     clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
+    content: "";
+    height: 0.65em;
+    width: 0.65em;
+    transform: scale(0);
+    transform-origin: bottom left;
+    transition: 120ms transform ease-in-out;
 }
 
 input[type="checkbox"]:checked::before {
@@ -318,11 +320,11 @@ input[type="range"]::-moz-range-track {
 input[type="range"]::-webkit-slider-thumb {
     -webkit-appearance: none; /* Override default look */
     appearance: none;
-    margin-top: -12px; /* Centers thumb on the track */
     background-color: var(--highlight);
-    height: 2rem;
-    width: 1rem;    
     border-radius: .2rem;
+    height: 2rem;
+    margin-top: -12px; /* Centers thumb on the track */
+    width: 1rem;    
 }
 
 
@@ -344,9 +346,9 @@ input[type="range"]:focus {
 /* Chrome, Safari, Opera, and Edge Chromium */
 input[type="range"]:focus::-webkit-slider-thumb {
     /* border: 1px solid var(--highlight); */
+    border-radius: .2rem;
     outline: 1.5px solid var(--highlight);
     outline-offset: 0.2rem;
-    border-radius: .2rem;
 }
   
 /* Firefox */
@@ -362,8 +364,8 @@ input[type="range"]:focus::-moz-range-thumb {
 /* ==================================================== SCROLLBAR ==================================================== */
 
 ::-webkit-scrollbar {
-    width: .45rem;
     background-color: var(--scrollbar-bottom);
+    width: .45rem;
 }
 
 ::-webkit-scrollbar-thumb {
@@ -416,8 +418,4 @@ input[type="range"]:focus::-moz-range-thumb {
     .github-corner:hover .left-corner {
         animation: none;
     }
-
-    /* .github-corner .left-corner {
-        animation: octocat-wave 560ms ease-in-out;
-    } */
 }

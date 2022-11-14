@@ -50,10 +50,9 @@ toggleDarkMode.addEventListener("click", () => {
     if(!toggleDarkMode.classList.contains("toggled")){
         toggleDarkMode.classList.add("toggled");
         root.style.setProperty('--bg-dark', '#e3e9e6');
-        root.style.setProperty('--bg-light', '#1F2937'); // --highlight: #4ADF86   --extra-fade: #888888
+        root.style.setProperty('--bg-light', '#1F2937'); 
         root.style.setProperty('--fade', '#3d4755'); 
         root.style.setProperty('--btn-bg-color', '#1F2937');
-        // root.style.setProperty('--btn-color', '#fff');
         root.style.setProperty('--state-copy', '#1F2937');
         root.style.setProperty('--scrollbar-bottom', '#1F2937');
         document.querySelector(".svg-style").style.fill="#1F2937";
@@ -61,7 +60,7 @@ toggleDarkMode.addEventListener("click", () => {
     }else if(toggleDarkMode.classList.contains("toggled")){
         toggleDarkMode.classList.remove("toggled");
         root.style.setProperty('--bg-dark', '#1F2937');
-        root.style.setProperty('--bg-light', '#fff'); // --highlight: #4ADF86   --extra-fade: #888888
+        root.style.setProperty('--bg-light', '#fff'); 
         root.style.setProperty('--fade', '#D5D4D8'); 
         root.style.setProperty('--btn-bg-color', '#4ADF86');
         root.style.setProperty('--state-copy', '#51c07e');
@@ -69,7 +68,6 @@ toggleDarkMode.addEventListener("click", () => {
         document.querySelector(".svg-style").style.fill="#10B981";
         document.querySelector(".svg-style").style.color="#1F2937";
     }
-    
 })
 
 // checkbox events

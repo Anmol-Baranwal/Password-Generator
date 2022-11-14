@@ -233,8 +233,9 @@ div.copy:active > i{
     border-radius: 50%;
     position: relative;
     left: 1.8rem;
-    background-color: var(--bg-dark);
+    background-color: var(--bg-light);
     transition: all .8s;
+    box-shadow: inset -8px -7px 0 0px var(--bg-dark);
 }
 
 .toggle-btn.toggled{
@@ -246,6 +247,7 @@ div.copy:active > i{
     transform: translateX(-30px) ;
     transition: all .8s;
     background-color: #fff; /* var(--bg-light) */ 
+    box-shadow: inset -20px -10px 0 0px var(--bg-dark);
 }
 
 /* ==================================================== CHECKBOX ==================================================== */

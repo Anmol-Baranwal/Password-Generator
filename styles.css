@@ -9,10 +9,14 @@ font-family: 'Poppins', sans-serif; */
     --fade: #D5D4D8;
     --extra-fade: #888888;
     --btn: #10B981;
+    --btn-bg-color: #4ADF86;
+    --btn-color: #fff;
     --dark-output: #273549;
     --bg-light: #fff;
     --custom-dark: #103e5f;
     --state-copy: #51c07e;
+    --eye-white: #fff;
+    --scrollbar-bottom: #D5D4D8;
 }
 
 *{
@@ -23,6 +27,10 @@ font-family: 'Poppins', sans-serif; */
 body{
     overflow-x: hidden;
     /* overflow-y: hidden; */
+}
+
+title{
+    color: var(--highlight);
 }
 
 .main-container{
@@ -58,8 +66,8 @@ p.inner-title{
     border: none;
 	padding: 1rem;
 	border-radius: 6px;
-    background-color: var(--btn);
-    color: var(--bg-light);
+    background-color: var(--btn-bg-color);
+    color: var(--btn-color);
     font-size: 1.2rem;
     cursor: pointer;
     box-shadow: 2px 3px 3px 0px rgba(16,185,129,.3);
@@ -143,7 +151,7 @@ input.slider{
 }
 
 .output-password span.visible{
-    color: var(--bg-light);
+    color: var(--eye-white);
     padding-left: 1.4rem;
     cursor: pointer;
 }
@@ -201,6 +209,44 @@ div.copy:active > i{
     }
 }
 
+.dark-mode {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    right: 5rem;
+    top: 2.5rem;
+}
+
+.toggle-btn {
+    height: 1.5rem;
+    width: 3.5rem;
+    background-color: var(--bg-light);
+    transition: all .8s;
+    border-radius: 2rem;
+    padding: .44rem .4rem .4rem .6rem;
+    margin: 0 .5rem;
+}
+
+.inner-circle {
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 50%;
+    position: relative;
+    left: 1.8rem;
+    background-color: var(--bg-dark);
+    transition: all .8s;
+}
+
+.toggle-btn.toggled{
+    background-color: #1F2937;  /* var(--extra-fade) The color will be toggled so this is working fine */ 
+    transition: all .8s ease-in-out;
+}
+
+.toggle-btn.toggled > .inner-circle {
+    transform: translateX(-30px) ;
+    transition: all .8s;
+    background-color: #fff; /* var(--bg-light) */ 
+}
 
 /* ==================================================== CHECKBOX ==================================================== */
 
@@ -315,7 +361,7 @@ input[type="range"]:focus::-moz-range-thumb {
 
 ::-webkit-scrollbar {
     width: .45rem;
-    background-color: var(--fade);
+    background-color: var(--scrollbar-bottom);
 }
 
 ::-webkit-scrollbar-thumb {
@@ -328,7 +374,7 @@ input[type="range"]:focus::-moz-range-thumb {
 }
 
 ::-webkit-scrollbar-track {
-    background: var(--extra-fade);
+    background: var(--scrollbar-bottom);
 }
 
 /* ================================== GitHub Corner ================================================= */

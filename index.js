@@ -10,10 +10,12 @@ const symbolsFilter= document.getElementById("symbols");
 const visibileFilter= document.getElementById("visibility");
 const password= document.querySelector(".password");
 const clickBtn= document.querySelector(".btn");
-let txt = document.querySelector(".password");
+let txt= document.querySelector(".password");
 const copy= document.querySelector(".copy");
 const copyIcon= document.querySelector(".toggled");
 let eyeVisible= document.querySelector(".eye-visible");
+const toggleDarkMode= document.querySelector(".toggle-btn");
+const root = document.querySelector(':root');
 
 // custom values
 let useNumbers= true;
@@ -23,11 +25,13 @@ let useVisibility= true;
 let check=0;
 let storePassword= "";
 
+// slider for getting password length
 slider.addEventListener('input', () => {
     sliderText.innerText = `${slider.value}`;
     passLength= slider.value;
 })
 
+// generate password button
 clickBtn.addEventListener("click", (e) => {
     e.preventDefault();
     resetCopy();
@@ -41,29 +45,62 @@ clickBtn.addEventListener("click", (e) => {
     
 })
 
+// to toggle the dark mode 
+toggleDarkMode.addEventListener("click", () => {
+    if(!toggleDarkMode.classList.contains("toggled")){
+        toggleDarkMode.classList.add("toggled");
+        root.style.setProperty('--bg-dark', '#e3e9e6');
+        root.style.setProperty('--bg-light', '#1F2937'); // --highlight: #4ADF86   --extra-fade: #888888
+        root.style.setProperty('--fade', '#3d4755'); 
+        root.style.setProperty('--btn-bg-color', '#1F2937');
+        // root.style.setProperty('--btn-color', '#fff');
+        root.style.setProperty('--state-copy', '#1F2937');
+        root.style.setProperty('--scrollbar-bottom', '#1F2937');
+        document.querySelector(".svg-style").style.fill="#1F2937";
+        document.querySelector(".svg-style").style.color="#e3e9e6";
+    }else if(toggleDarkMode.classList.contains("toggled")){
+        toggleDarkMode.classList.remove("toggled");
+        root.style.setProperty('--bg-dark', '#1F2937');
+        root.style.setProperty('--bg-light', '#fff'); // --highlight: #4ADF86   --extra-fade: #888888
+        root.style.setProperty('--fade', '#D5D4D8'); 
+        root.style.setProperty('--btn-bg-color', '#4ADF86');
+        root.style.setProperty('--state-copy', '#51c07e');
+        root.style.setProperty('--scrollbar-bottom', '#D5D4D8');
+        document.querySelector(".svg-style").style.fill="#10B981";
+        document.querySelector(".svg-style").style.color="#1F2937";
+    }
+    
+})
+
 // checkbox events
+
+// use of numbers 
 numbersFilter.addEventListener("change", (e) => {
 	useNumbers = e.target.checked;  // sets boolean value
 	// console.log(useNumbers);
 });
 
+// use of symbols
 symbolsFilter.addEventListener("change", (e) => {
 	useSymbols = e.target.checked;  // sets boolean value
 	// console.log(useSymbols);
 });
 
+// use of visibility of password
 visibileFilter.addEventListener("change", (e) => {
     useVisibility = e.target.checked;
 })
 
 // filter main characters array   
 
+// filter numbers
 function filterNumbers(customArr) {
 	let numberArr = ["0","1","2","3","4","5","6","7","8","9",];
 
 	return customArr.filter((char) => !numberArr.includes(char));
 }
 
+// filter symbols
 function filterSymbols(customArr) {
 	let symbolArr = ["~","`","!","@","#","$","%","^","&","*","(",")","_","-","+","=","{","[","}","]",",","|",":",";","<",">",".","?","/",];
 
@@ -89,7 +126,7 @@ const filterCharacters = (customArr) => {
     }
 }
 
-// main function
+// get random password 
 const newRandomPassword = (length) => {
     let newPassword="";
     let finalArr= filterCharacters(characterSet);
@@ -99,6 +136,7 @@ const newRandomPassword = (length) => {
     return newPassword;
 }
 
+// to change the copy icon on clicking
 // copy.addEventListener("click", (e) => {
 const copyPassword = async () => {
     if(copyIcon.classList.contains("toggled")){
@@ -117,6 +155,7 @@ const copyPassword = async () => {
 }
 // })
 
+// to change the password to * with appropriate length
 const hidePassword = () => {
     if(check){
         let hidePass= "";
@@ -127,6 +166,7 @@ const hidePassword = () => {
     }
 }
 
+// reset the values and necessary components
 const resetCopy = () => {
 
     if(useVisibility){
@@ -141,6 +181,7 @@ const resetCopy = () => {
     }
 }
 
+// changing the visible icon 
 const makePasswordVisible = () => {
     eyeVisible.classList.remove("fa-eye","eye-not-visible");
     eyeVisible.classList.add("eye-visible","fa-eye-slash");
@@ -154,6 +195,7 @@ const makePasswordNotVisible = () => {
     hidePassword();
 }
 
+// functionality to make password visible or not based on default values
 const visiblePassword = () => {
     if(eyeVisible.classList.contains("eye-visible")){
         makePasswordNotVisible();
@@ -162,8 +204,4 @@ const visiblePassword = () => {
         makePasswordVisible();
         check==0 ?  password.innerText= "Still Waiting ?" : password.innerText= storePassword; 
     }
-}
-
-const checkIcon = () => {
-
 }
